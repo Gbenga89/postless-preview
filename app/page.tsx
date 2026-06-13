@@ -102,7 +102,6 @@ const FEATURES = [
   { icon: '◈', title: 'Human-in-the-loop',    desc: 'You stay in control. Edit, approve, or regenerate before anything is posted. Your name, your sign-off.' },
   { icon: '⊕', title: 'All major platforms',  desc: 'LinkedIn, X, Instagram, Facebook, Threads, TikTok, and Bluesky — one queue for every channel.' },
   { icon: '◐', title: 'Brand progress',       desc: 'Track posting consistency, engagement trends, and momentum toward your brand goal over time.' },
-  { icon: '⊞', title: 'Multiple brands',      desc: 'Create and manage separate brands — each with its own content pillars, inbox, and plan. Built for founders, agencies, and creators juggling more than one project.' },
 ]
 
 const COMPARE_ROWS = [
