@@ -344,9 +344,9 @@ export default function HomePage() {
               Postless publishes to all the major networks — you manage everything from one place, with a single sign-off flow.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-border border border-border rounded-[10px] overflow-hidden">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {PLATFORMS.map((p) => (
-                <div key={p.key} className="bg-bg p-6">
+                <div key={p.key} className="bg-bg-1 border border-border rounded-[8px] p-6">
                   <div className={`w-10 h-10 rounded flex items-center justify-center mb-3 ${p.bg} ${p.color}`}>
                     {p.icon}
                   </div>
