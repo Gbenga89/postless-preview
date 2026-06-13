@@ -3,9 +3,5 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "regions": ["fra1"],
-  "env": {
-    "RESEND_API_KEY": "@resend_api_key",
-    "RESEND_AUDIENCE_ID": "@resend_audience_id"
-  }
+  "regions": ["fra1"]
 }
