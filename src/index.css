@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 227 83% 7%;
+    --foreground: 220 20% 90%;
+
+    --card: 226 25% 15%;
+    --card-foreground: 220 20% 90%;
+
+    --popover: 226 25% 15%;
+    --popover-foreground: 220 20% 90%;
+
+    --primary: 267 100% 75%;
+    --primary-foreground: 227 83% 7%;
+
+    --secondary: 226 20% 20%;
+    --secondary-foreground: 220 15% 75%;
+
+    --muted: 226 20% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --warning: 45 93% 47%;
+
+    --accent: 226 20% 22%;
+    --accent-foreground: 220 20% 90%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 226 20% 22%;
+    --input: 226 20% 22%;
+    --ring: 267 100% 75%;
+
+    --radius: 0.5rem;
+
+    --hero-glow: 267 100% 75%;
+    --surface-elevated: 226 22% 17%;
+    --text-dim: 220 10% 45%;
+    --text-bright: 0 0% 100%;
+    --accent-purple: 267 100% 75%;
+    --shadow-glow: 0 0 60px -12px hsl(267 100% 75% / 0.15);
+
+    --sidebar-background: 226 28% 10%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 143 64% 52%;
+    --sidebar-primary-foreground: 226 28% 8%;
+    --sidebar-accent: 226 20% 18%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 226 20% 22%;
+    --sidebar-ring: 143 64% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .border-glow {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  .surface-elevated {
+    background-color: hsl(var(--surface-elevated));
+  }
+}

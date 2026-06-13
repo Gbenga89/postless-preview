@@ -1,0 +1,149 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [vector]
+}
+
+enum InboxScope {
+  brand
+  global
+}
+
+enum InboxType {
+  article
+  idea
+  link
+  text
+  feedback
+  work_update
+}
+
+enum PostStatus {
+  draft
+  in_review
+  queued
+  published
+  failed
+}
+
+model Plan {
+  id             String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String
+  priceUsd       Decimal?       @map("price_usd")
+  tokenAllowance Int?           @map("token_allowance")
+  modelTier      String?        @map("model_tier")
+  limits         Json           @default("{}")
+  createdAt      DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  subscriptions  Subscription[]
+
+  @@map("plans")
+}
+
+model Subscription {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId           String    @map("user_id") @db.Uuid
+  planId           String    @map("plan_id") @db.Uuid
+  plan             Plan      @relation(fields: [planId], references: [id])
+  status           String?
+  trialEndsAt      DateTime? @map("trial_ends_at") @db.Timestamptz
+  currentPeriodEnd DateTime? @map("current_period_end") @db.Timestamptz
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([userId])
+  @@map("subscriptions")
+}
+
+model InboxItem {
+  id         String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  brandId    String?        @map("brand_id") @db.Uuid
+  userId     String         @map("user_id") @db.Uuid
+  scope      InboxScope     @default(brand)
+  type       InboxType?
+  title      String?
+  rawContent String?        @map("raw_content")
+  sourceUrl  String?        @map("source_url")
+  createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  chunks     ContentChunk[]
+
+  @@index([brandId, createdAt(sort: Desc)])
+  @@index([userId])
+  @@map("inbox_items")
+}
+
+model ContentChunk {
+  id          String                       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  inboxItemId String                       @map("inbox_item_id") @db.Uuid
+  inboxItem   InboxItem                    @relation(fields: [inboxItemId], references: [id], onDelete: Cascade)
+  brandId     String?                      @map("brand_id") @db.Uuid
+  chunkIndex  Int?                         @map("chunk_index")
+  chunkText   String?                      @map("chunk_text")
+  tokenCount  Int?                         @map("token_count")
+  embedding   Unsupported("vector(1536)")?
+  createdAt   DateTime                     @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("content_chunks")
+}
+
+model ContentPlan {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  brandId        String   @map("brand_id") @db.Uuid
+  cadence        String?
+  aggressiveness Int?
+  schedule       Json     @default("[]")
+  status         String   @default("active")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  posts          Post[]
+
+  @@map("content_plans")
+}
+
+model Post {
+  id               String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  brandId          String       @map("brand_id") @db.Uuid
+  planId           String?      @map("plan_id") @db.Uuid
+  contentPlan      ContentPlan? @relation(fields: [planId], references: [id])
+  body             String?
+  platformVariants Json         @default("{}") @map("platform_variants")
+  status           PostStatus   @default(draft)
+  reviewMode       Boolean      @default(false) @map("review_mode")
+  scheduledAt      DateTime?    @map("scheduled_at") @db.Timestamptz
+  publishedAt      DateTime?    @map("published_at") @db.Timestamptz
+  regenCount       Int          @default(0) @map("regen_count")
+  createdAt        DateTime     @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt        DateTime     @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([brandId, status, scheduledAt])
+  @@map("posts")
+}
+
+model PlatformConnection {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  brandId     String    @map("brand_id") @db.Uuid
+  platform    String?
+  oauthTokens Json?     @map("oauth_tokens")
+  status      String    @default("disconnected")
+  connectedAt DateTime? @map("connected_at") @db.Timestamptz
+
+  @@map("platform_connections")
+}
+
+model UsageLog {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String   @map("user_id") @db.Uuid
+  brandId    String?  @map("brand_id") @db.Uuid
+  action     String?
+  provider   String?
+  model      String?
+  tokensUsed Int?     @map("tokens_used")
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([userId, createdAt])
+  @@map("usage_log")
+}
