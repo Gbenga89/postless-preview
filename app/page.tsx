@@ -89,10 +89,10 @@ const PLATFORMS = [
 ]
 
 const STEPS = [
-  { num: '01', title: 'Set your brand goal',   desc: 'Tell us who you\'re building toward — thought leader, founder, domain expert. Takes 3 minutes.' },
-  { num: '02', title: 'Get your schedule',      desc: 'AI builds a weekly posting cadence tuned to your goal, audience, and platforms.' },
-  { num: '03', title: 'Fill your Brand Memory', desc: 'Add a link, article, idea, or screenshot to your inbox. Postless drafts a post from it instantly.' },
-  { num: '04', title: 'Review & approve',       desc: 'Add your voice, approve with one click. Nothing goes live without your sign-off.' },
+  { num: '01', title: 'Define your brand positioning', desc: 'Set your personal branding goals in minutes. Tell us who you want to become—founder, creator, industry expert, or thought leader—and who you want to reach.' },
+  { num: '02', title: 'Get your AI-powered content strategy', desc: 'Postless builds your social media content strategy and posting schedule automatically. Your content calendar is optimized for your audience, platforms, and growth goals—so you always know what to post and when.' },
+  { num: '03', title: 'Turn ideas into ready-to-post content', desc: 'Add a link, article, idea, or screenshot. Postless uses AI to instantly turn it into engaging posts tailored to your voice—ready for LinkedIn, Twitter/X, Instagram, and more.' },
+  { num: '04', title: 'Review, approve, and auto-publish everywhere', desc: 'Edit your content, approve in one click, and let Postless handle the rest. Your posts are automatically published—with your full control and no robotic output.' },
 ]
 
 const FEATURES = [
