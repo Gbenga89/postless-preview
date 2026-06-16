@@ -118,15 +118,15 @@ const COMPARE_ROWS = [
 
 const FAQS = [
   {
-    q: 'Does it actually sound like me?',
+    q: 'Will it retain my brand voice?',
     a: 'We ask about your tone, audience, and brand goal during onboarding — every draft is written against those settings. You can edit before approving, and the system learns your preferences over time. Nothing posts without your sign-off.',
   },
   {
-    q: 'Which platforms does Postless support?',
+    q: 'Which social media platforms does Postless support?',
     a: 'LinkedIn and X at launch. Instagram, Facebook, Threads, TikTok, and Bluesky are actively being built and roll out shortly after. All platforms share the same review-and-approve flow.',
   },
   {
-    q: 'How much time does it actually take per week?',
+    q: 'How much of my time does the social media management tool take per week?',
     a: 'Most users spend 10–20 minutes a week reviewing and approving drafts. Onboarding takes about 3 minutes. Dropping in a new article takes under a minute.',
   },
   {
@@ -149,16 +149,14 @@ export default function HomePage() {
         {/* ── Hero ── */}
         <section id="hero" className="pt-20 pb-24 max-w-content mx-auto px-6">
           <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-7">
-            AI-powered brand building
+            Build a strong brand with AI
           </p>
           <h1 className="text-[clamp(32px,5vw,58px)] font-medium leading-[1.08] tracking-[-0.03em] text-ink max-w-[680px] mb-5">
-            Your brand grows.<br />
-            <em className="not-italic text-accent">Without the posting&nbsp;grind.</em>
+            Grow your brand everywhere.<br />
+            <em className="not-italic text-accent">Without the content&nbsp;chaos.</em>
           </h1>
           <p className="text-[17px] text-ink-2 leading-[1.65] max-w-[480px] mb-10">
-            Set your brand goal once. Postless plans your content, drafts every post,
-            and only asks for your sign-off before anything goes&nbsp;live.
-            Sign up with Google — up and running in&nbsp;minutes.
+            Postless creates, schedules and posts for you. Automate posts across all social platforms at once. No burnout. No backlog. Just effortless consistent growth.
           </p>
 
           {/* Platform icons */}
@@ -214,10 +212,10 @@ export default function HomePage() {
           <div className="max-w-content mx-auto px-6">
             <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-3">The problem</p>
             <h2 className="text-[clamp(24px,3.5vw,38px)] font-medium leading-[1.15] tracking-[-0.025em] text-ink max-w-[600px] mb-4">
-              Building a brand on social shouldn't feel like a second job.
+              Building your brand online shouldn't feel like a second job.
             </h2>
             <p className="text-[16px] text-ink-2 max-w-[480px] leading-relaxed mb-14">
-              Most professionals know they should be posting consistently. Almost none actually do.
+              But right now… it does.
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-12" role="list">
               {[
@@ -240,12 +238,12 @@ export default function HomePage() {
         {/* ── How it works ── */}
         <section id="how-it-works" className="border-t border-border py-24">
           <div className="max-w-content mx-auto px-6">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-3">How it works</p>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-3">How Postless solves your problem</p>
             <h2 className="text-[clamp(24px,3.5vw,38px)] font-medium leading-[1.15] tracking-[-0.025em] text-ink max-w-[600px] mb-4">
-              From brand goal to published post in minutes.
+              From brand goal → AI content creation → multi-platform publishing in minutes.
             </h2>
             <p className="text-[16px] text-ink-2 max-w-[480px] leading-relaxed mb-14">
-              A four-step loop that keeps your brand growing without monopolising your calendar.
+              A simple system designed to automate your social media content and keep your brand growing—without taking over your time.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-border rounded-[10px] overflow-hidden">
