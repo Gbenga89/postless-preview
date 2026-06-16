@@ -219,12 +219,12 @@ export default function HomePage() {
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-12" role="list">
               {[
-                'You spend 2 hours writing a post and still aren\'t happy with it',
-                'You post inconsistently and your audience forgets you exist',
-                'Fully automated tools strip out your voice and sound robotic',
-                'Scheduling tools just move the problem — you still need to write everything',
-                'You have no idea if your posting is actually building toward anything',
-                'Interesting articles pile up in your bookmarks, never turned into posts',
+                'You know consistency matters, but you can\'t keep up with posting on all social media platforms',
+                'You spend valuable hours on social media content creation and still don\'t feel it is good enough',
+                'Posting randomly without a content plan, hoping something sticks',
+                'Your social media posting apps don\'t help really because you still have to create everything',
+                'Social media automation tools strip out your voice making you sound regular',
+                'You keep sitting on content ideas you know could work, but never get published',
               ].map((text, i) => (
                 <li key={i} className="flex gap-3.5 items-start">
                   <span className="font-mono text-[13px] text-ink-3 mt-0.5 shrink-0" aria-hidden="true">—</span>
