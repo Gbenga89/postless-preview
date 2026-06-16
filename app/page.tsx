@@ -202,7 +202,7 @@ export default function HomePage() {
               ))}
             </div>
             <p className="text-[13px] text-ink-2">
-              <strong className="font-medium text-ink">240+ founders</strong> on the early access list
+            {/* Social proof hidden until launch */}
             </p>
           </div>
         </section>
